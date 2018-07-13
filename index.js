@@ -9,52 +9,51 @@ import {
   VrButton
 } from 'react-360';
 
-const {AudioModule} = NativeModules
+const { AudioModule } = NativeModules
 
 // Play a sound to the user's right (3 meters down the positive x-axis)
-AudioModule.createAudio('10mRight', {
-  source: asset('/sounds/finger-snap.mp4'),
-  is3d: true,
-})
-AudioModule.createAudio('1mRight', {
-  source: asset('/sounds/finger-snap.mp4'),
-  is3d: true,
-})
-AudioModule.createAudio('10mLeft', {
-  source: asset('/sounds/finger-snap.mp4'),
-  is3d: true,
-})
-AudioModule.createAudio('1mLeft', {
-  source: asset('/sounds/finger-snap.mp4'),
-  is3d: true,
-})
+function playSound(name, position) {
+
+  AudioModule.createAudio(name, {
+    source: asset(`/sounds/${name}.mp4`),
+    is3d: true,
+  })
+  AudioModule.play(name, { position })
+  AudioModule.destroy(name)
+}
 export default class Hello360 extends React.Component {
   render() {
     return (
       <View style={styles.panel}>
         <View style={styles.greetingBox}>
-          <VrButton onClick={() => { AudioModule.play('10mRight', { position: [10, 0, 0], }) }}>
+          <VrButton onClick={() => { playSound('finger-snap', [10, 0, 0]) }}>
             <Text style={styles.greeting}>
               Play a sound to the user's right (10 meters down the positive x-axis)
             </Text>
           </VrButton>
-          <VrButton onClick={() => { AudioModule.play('1mRight', { position: [1, 0, 0], }) }}>
-            <Text style={styles.greeting}>
+          <VrButton onClick={() => {
+            playSound('finger-snap', [1, 0, 0])
+          }}>
+            < Text style={styles.greeting} >
               Play a sound to the user's right (1 meters down the positive y-axis)
             </Text>
           </VrButton>
-          <VrButton onClick={() => { AudioModule.play('10mLeft', { position: [-10, 0, 0], }) }}>
-            <Text style={styles.greeting}>
+          <VrButton onClick={() => {
+            playSound('finger-snap', [-10, 0, 0])
+          }}>
+            < Text style={styles.greeting} >
               Play a sound to the user's left (10 meters down the positive x-axis)
             </Text>
           </VrButton>
-          <VrButton onClick={() => { AudioModule.play('1mLeft', { position: [-1, 0, 0], }) }}>
-            <Text style={styles.greeting}>
+          <VrButton onClick={() => {
+            playSound('finger-snap', [-1, 0, 0])
+          }}>
+            < Text style={styles.greeting} >
               Play a sound to the user's left (1 meters down the positive y-axis)
-            </Text>
-          </VrButton>
-        </View>
-      </View>
+            </Text >
+          </VrButton >
+        </View >
+      </View >
     );
   }
 };
