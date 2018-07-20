@@ -1,3 +1,5 @@
+import { hasReachExit } from "./map";
+
 let position = [0, 0, 0]
 
 export const getPosition = () => position
@@ -9,6 +11,10 @@ export const translate = movement => [
 ]
 
 export const move = movement => {
+  if (hasReachExit(position)) {
+    console.log('reach exit')
+    return
+  }
   position = translate(movement)
 }
 

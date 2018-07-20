@@ -1,10 +1,9 @@
 import { move, getPosition } from "./position";
 
-export const handleInput = e => {
+export const updatePosition = e => {
   const event = e.nativeEvent
   const inputEvent = event.inputEvent
   if (inputEvent.action !== 'down') return
-  console.log(getPosition())
   switch (inputEvent.button) {
     case 38:
       return move([0, 1, 0])
