@@ -1,32 +1,74 @@
 [
-  [
-    1,
-    0,
-    0
-  ],
-  [
-    1,
-    1,
-    0
-  ],
-  [
-    1,
-    2,
-    0
-  ],
-  [
-    2,
-    2,
-    0
-  ],
-  [
-    3,
-    2,
-    0
-  ],
-  [
-    3,
-    1,
-    0
-  ]
+  {
+    "value": [
+      1,
+      0,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "up",
+      "down"
+    ]
+  },
+  {
+    "value": [
+      1,
+      1,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "up",
+      "down"
+    ]
+  },
+  {
+    "value": [
+      1,
+      2,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "down",
+      "right"
+    ]
+  },
+  {
+    "value": [
+      2,
+      2,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "right",
+      "left"
+    ]
+  },
+  {
+    "value": [
+      3,
+      2,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "left",
+      "down"
+    ]
+  },
+  {
+    "value": [
+      3,
+      1,
+      0
+    ],
+    "type": "wall",
+    "emptyOn": [
+      "up",
+      "down"
+    ]
+  }
 ]
