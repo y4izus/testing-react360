@@ -1,74 +1,81 @@
-[
-  {
-    "value": [
-      1,
-      0,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "up",
-      "down"
-    ]
-  },
-  {
-    "value": [
-      1,
-      1,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "up",
-      "down"
-    ]
-  },
-  {
-    "value": [
-      1,
-      2,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "down",
-      "right"
-    ]
-  },
-  {
-    "value": [
-      2,
-      2,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "right",
-      "left"
-    ]
-  },
-  {
-    "value": [
-      3,
-      2,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "left",
-      "down"
-    ]
-  },
-  {
-    "value": [
-      3,
-      1,
-      0
-    ],
-    "type": "wall",
-    "emptyOn": [
-      "up",
-      "down"
-    ]
-  }
-]
+{
+  "playerPosition": [
+    1,
+    0,
+    0
+  ],
+  "cells": [
+    {
+      "value": [
+        1,
+        0,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "up",
+        "down"
+      ]
+    },
+    {
+      "value": [
+        1,
+        1,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "up",
+        "down"
+      ]
+    },
+    {
+      "value": [
+        1,
+        2,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "down",
+        "right"
+      ]
+    },
+    {
+      "value": [
+        2,
+        2,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "right",
+        "left"
+      ]
+    },
+    {
+      "value": [
+        3,
+        2,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "left",
+        "down"
+      ]
+    },
+    {
+      "value": [
+        3,
+        1,
+        0
+      ],
+      "type": "wall",
+      "emptyOn": [
+        "up",
+        "down"
+      ]
+    }
+  ]
+}

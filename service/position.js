@@ -1,13 +1,14 @@
 import { hasReachExit } from "./map";
+import map from '../static_assets/maps/easy.json'
 
-let position = [0, 0, 0]
+let position = map.playerPosition
 
 export const getPosition = () => position
 
 export const translate = movement => [
-  position[0] + movement[0],
-  position[1] + movement[1],
-  position[2] + movement[2]
+  movement[0] - position[0],
+  movement[1] - position[1],
+  movement[2] - position[2]
 ]
 
 export const move = movement => {

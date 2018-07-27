@@ -1,24 +1,17 @@
 import React from 'react';
 import {
   AppRegistry,
-  Text,
   View,
-  asset,
-  VrButton
 } from 'react-360';
-import { playSound } from './utils'
 import styles from './styles'
-import { translate } from './service/position';
-import { updatePosition } from './service/inputs'
-import { registerMap, drawMap } from './service/map'
-import map from './static_assets/maps/easy.json'
+import { handleInput } from './service/inputs'
 
-drawMap(map)
 
 export default class Hello360 extends React.Component {
   handleInput(e) {
-    updatePosition(e)
-    drawMap(map)
+    const event = e.nativeEvent
+    const inputEvent = event.inputEvent
+    handleInput(inputEvent)
   }
   render() {
     return (
