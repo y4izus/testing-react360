@@ -1,9 +1,11 @@
 import { move, getPosition, translate } from "./position";
-import { playSound } from "../utils";
-import { minDistanceColide } from './map'
+import { playSound } from "./sounds";
+import { minDistanceColide, calculateExitPosition } from './map'
 
 const isRequestForSound = inputEvent =>
   [87, 83, 65, 68].includes(inputEvent.button) && inputEvent.action === 'down'
+const isRequestForSoundStop = inputEvent =>
+  [87, 83, 65, 68].includes(inputEvent.button) && inputEvent.action === 'up'
 const isMovement = inputEvent =>
   [37, 38, 39, 40].includes(inputEvent.button) && inputEvent.action === 'down'
 
@@ -20,18 +22,9 @@ const getDirection = inputEvent => {
   }
 }
 
-// TODO: Calculate exit on given direction
-const calculateExit = (position, direction) => {
-  return position
-}
-
 const locateSound = inputEvent => {
   const direction = getDirection(inputEvent)
-  const cell = minDistanceColide(direction, getPosition())
-  if (!cell) {
-    return playSound('exit', calculateExit(getPosition(), direction))
-  }
-  return playSound(cell.type, translate(cell.value))
+  return minDistanceColide(direction, getPosition())
 }
 
 const updatePosition = inputEvent => {
@@ -51,6 +44,17 @@ export const handleInput = inputEvent => {
   if (isMovement(inputEvent)) {
     return updatePosition(inputEvent)
   }
-  if (isRequestForSound(inputEvent))
-    return locateSound(inputEvent)
+  const cell = locateSound(inputEvent)
+  if (isRequestForSound(inputEvent)) {
+    if (!cell) {
+      return playSound('exit', translate(calculateExitPosition(getPosition(), direction)))
+    }
+    return playSound(cell.type, translate(cell.value))
+  }
+  if (isRequestForSoundStop(inputEvent)) {
+    if (!cell) {
+      return stopSound('exit')
+    }
+    return stopSound(cell.type)
+  }
 }

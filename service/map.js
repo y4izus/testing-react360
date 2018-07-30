@@ -25,6 +25,20 @@ const getClosestCellOnAxis = (axis, cellsInSameDirection) => {
   return cellsInSameDirection.reduce((minDistanceCell, cell) => cell.value[axis] < minDistanceCell.value[axis] ? cell : minDistanceCell, cellsInSameDirection[0])
 }
 
+export const calculateExitPosition = (position, direction) => {
+  switch (direction) {
+    case 'up':
+      return [position[0], HEIGHT, 0]
+    case 'down':
+      return [position[0], 0, 0]
+    case 'left':
+      return [0, position[1], 0]
+    case 'right':
+      return [WIDTH, position[1], 0]
+  }
+  return position
+}
+
 export const minDistanceColide = (direction, position) => {
   const axis = getAxis(direction)
   const cellsInSameDirection = getCellsInSameDirection(direction, position, map.cells)
